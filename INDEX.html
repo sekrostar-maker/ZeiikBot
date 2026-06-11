@@ -8,76 +8,86 @@
 <title>ZeiikBet — Value Bets Coupe du Monde 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700&display=swap');
-  :root { --bg:#04060f;--surface:#0c1120;--border:#1a2236;--accent:#3b82f6;--accent2:#6366f1;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--text:#f1f5f9;--muted:#64748b;--dim:#1e293b; }
-  *{box-sizing:border-box;margin:0;padding:0} html{background:var(--bg)} body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
-  .header{background:linear-gradient(180deg,#0c1120 0%,transparent 100%);padding:18px 16px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-  .header-inner{max-width:560px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-bottom:14px}
+  :root{--bg:#04060f;--surface:#0c1120;--border:#1a2236;--accent:#3b82f6;--accent2:#6366f1;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--text:#f1f5f9;--muted:#64748b;--dim:#1e293b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--bg)}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+  .header{background:linear-gradient(180deg,#0c1120 0%,transparent 100%);padding:16px 16px 0;position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .header-inner{max-width:560px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-bottom:12px}
   .logo{display:flex;align-items:center;gap:8px}
-  .logo-text{font-size:20px;font-weight:900;letter-spacing:-0.03em}
+  .logo-text{font-size:19px;font-weight:900;letter-spacing:-.03em}
   .logo-text span{color:var(--accent)}
-  .logo-badge{font-size:10px;background:#22c55e18;color:var(--green);font-weight:700;padding:2px 8px;border-radius:20px;border:1px solid #22c55e33;letter-spacing:.06em}
-  .tabs{display:flex;gap:0;max-width:560px;margin:0 auto}
-  .tab{flex:1;padding:10px 4px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-weight:500;font-size:12px;cursor:pointer;transition:all .15s;letter-spacing:.02em;font-family:'Inter',sans-serif}
+  .badge{font-size:10px;background:#22c55e18;color:var(--green);font-weight:700;padding:2px 8px;border-radius:20px;border:1px solid #22c55e33;margin-left:6px}
+  .tabs{display:flex;max-width:560px;margin:0 auto}
+  .tab{flex:1;padding:9px 4px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-weight:500;font-size:11px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;text-align:center}
   .tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:800}
-  .main{max-width:560px;margin:0 auto;padding:16px 14px 40px}
-  .hero{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
-  .hero-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center}
-  .hero-num{font-size:24px;font-weight:900;line-height:1;font-family:'JetBrains Mono',monospace}
-  .hero-label{font-size:9px;color:var(--muted);margin-top:3px;font-weight:600;letter-spacing:.05em}
+  .main{max-width:560px;margin:0 auto;padding:14px 14px 40px}
+  .hero{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+  .hcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:11px 6px;text-align:center}
+  .hnum{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;line-height:1}
+  .hlbl{font-size:9px;color:var(--muted);margin-top:3px;font-weight:600;letter-spacing:.04em}
   .section-title{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;margin-top:4px}
   .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-  .vb-strip{background:linear-gradient(135deg,#052e1633,#14532d22);border:1px solid #16a34a44;border-radius:14px;padding:14px;margin-bottom:18px;display:flex;flex-direction:column;gap:10px}
-  .vb-item{background:#020917;border-radius:10px;padding:12px 13px;border-left:3px solid var(--green)}
+  .vb-strip{background:linear-gradient(135deg,#052e1633,#14532d22);border:1px solid #16a34a44;border-radius:14px;padding:13px;margin-bottom:16px;display:flex;flex-direction:column;gap:9px}
+  .vb-item{background:#020917;border-radius:10px;padding:11px 12px;border-left:3px solid var(--green)}
   .vb-match{font-size:13px;font-weight:800;margin-bottom:2px}
-  .vb-meta{font-size:11px;color:var(--muted);margin-bottom:8px}
-  .vb-bet{display:flex;justify-content:space-between;align-items:center}
+  .vb-meta{font-size:10px;color:var(--muted);margin-bottom:7px}
+  .vb-row{display:flex;justify-content:space-between;align-items:center}
   .vb-pred{font-size:12px;font-weight:700;color:var(--green)}
   .vb-conf{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700}
   .vb-reason{font-size:11px;color:#4ade8066;margin-top:5px;line-height:1.4}
-  .match-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:9px;overflow:hidden;transition:border-color .2s}
+  .bar-wrap{width:100%;background:var(--dim);border-radius:3px;overflow:hidden}
+  .bar-fill{border-radius:3px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+  .match-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:9px;overflow:hidden}
   .match-card.has-value{border-color:#16a34a33}
-  .match-header{padding:13px 14px;cursor:pointer;display:flex;flex-direction:column;gap:9px}
-  .match-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-  .match-league{font-size:10px;color:var(--muted);font-weight:600;margin-bottom:3px;display:flex;align-items:center;gap:4px}
+  .match-header{padding:12px 14px;cursor:pointer}
+  .match-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+  .match-league{font-size:10px;color:var(--muted);margin-bottom:3px}
   .match-teams{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .match-teams .sep{color:var(--dim);font-weight:400;margin:0 5px}
-  .match-best{font-size:11px;color:var(--muted);margin-top:3px}
   .conf-big{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;line-height:1;text-align:right}
-  .conf-label{font-size:9px;color:var(--muted);margin-top:1px;letter-spacing:.06em;text-align:right}
+  .conf-lbl{font-size:9px;color:var(--muted);text-align:right;margin-top:1px}
   .risk-pill{font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;display:inline-block;margin-top:3px}
-  .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+  .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
   .tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
-  .tag.value{background:#16a34a22;color:var(--green);border:1px solid #16a34a33}
-  .tag.high{background:#3b82f622;color:var(--accent);border:1px solid #3b82f633}
-  .tag.wc{background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b33}
-  .bar-wrap{width:100%;background:var(--dim);border-radius:4px;overflow:hidden}
-  .bar-fill{border-radius:4px;transition:width .8s cubic-bezier(.4,0,.2,1)}
-  .bets-panel{border-top:1px solid var(--border);padding:12px 14px;display:flex;flex-direction:column;gap:7px}
-  .summary-box{background:#020917;border-radius:8px;padding:9px 11px;font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:2px}
-  .bet-row{background:#020917;border-radius:10px;padding:10px 12px}
+  .tag-v{background:#16a34a22;color:var(--green);border:1px solid #16a34a33}
+  .tag-h{background:#3b82f622;color:var(--accent);border:1px solid #3b82f633}
+  .tag-wc{background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b33}
+  .bets-panel{border-top:1px solid var(--border);padding:11px 13px;display:flex;flex-direction:column;gap:7px}
+  .summary-box{background:#020917;border-radius:8px;padding:9px 11px;font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:4px}
+  .lineup-box{background:#020917;border-radius:8px;padding:9px 11px;margin-bottom:4px}
+  .lineup-title{font-size:10px;color:var(--accent);font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+  .lineup-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .lineup-team{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:4px}
+  .lineup-player{font-size:11px;color:#94a3b8;padding:2px 0;border-bottom:1px solid #1e293b22;display:flex;align-items:center;gap:5px}
+  .lineup-player.key{color:#f1f5f9;font-weight:600}
+  .lineup-absent{background:#7f1d1d22;border-radius:6px;padding:5px 8px;font-size:11px;color:#fca5a5;margin-top:4px}
+  .bet-row{background:#020917;border-radius:9px;padding:9px 11px}
   .bet-row.is-value{border:1px solid #16a34a33}
-  .bet-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-  .bet-left{display:flex;align-items:center;gap:6px;font-size:12px;color:#94a3b8}
-  .bet-right{display:flex;align-items:center;gap:8px}
+  .bet-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+  .bet-left{display:flex;align-items:center;gap:5px;font-size:12px;color:#94a3b8}
+  .bet-vbadge{font-size:10px;background:#16a34a22;color:var(--green);font-weight:700;padding:1px 7px;border-radius:10px;border:1px solid #16a34a33}
+  .bet-right{display:flex;align-items:center;gap:6px}
   .bet-conf{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700}
-  .bet-reason{font-size:11px;color:#4ade8055;margin-top:5px;line-height:1.4}
-  .scan-btn{width:100%;padding:14px;border:none;border-radius:12px;font-size:14px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;letter-spacing:.03em;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .2s,transform .1s;font-family:'Inter',sans-serif;margin-bottom:14px}
+  .bet-reason{font-size:10px;color:#4ade8055;margin-top:4px;line-height:1.4}
+  .scan-btn{width:100%;padding:13px;border:none;border-radius:12px;font-size:14px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;letter-spacing:.03em;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .2s,transform .1s;font-family:'Inter',sans-serif;margin-bottom:12px}
   .scan-btn:active{transform:scale(.98)}
   .scan-btn:disabled{background:var(--surface);color:var(--muted);cursor:not-allowed;transform:none}
-  .progress-bar{background:var(--dim);border-radius:4px;height:6px;overflow:hidden;margin-top:8px}
+  .progress-bar{background:var(--dim);border-radius:4px;height:6px;overflow:hidden;margin-bottom:12px}
   .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2),#8b5cf6);border-radius:4px;transition:width .4s}
-  .spin{animation:spin .8s linear infinite;display:inline-block;width:16px;height:16px;border:2px solid #334155;border-top-color:#fff;border-radius:50%}
+  .spin{animation:spin .8s linear infinite;display:inline-block;width:16px;height:16px;border:2px solid #334155;border-top-color:#fff;border-radius:50%;flex-shrink:0}
   @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
   .fade-up{animation:fadeUp .3s ease both}
-  .empty{text-align:center;padding:50px 20px;color:var(--dim)}
-  .empty-icon{font-size:50px;margin-bottom:12px}
-  .empty-title{font-size:15px;font-weight:700;color:#334155;margin-bottom:6px}
+  .empty{text-align:center;padding:48px 20px}
+  .empty-icon{font-size:48px;margin-bottom:12px}
+  .empty-title{font-size:14px;font-weight:700;color:#334155;margin-bottom:6px}
   .empty-sub{font-size:12px;color:var(--dim);line-height:1.5}
-  .footer{text-align:center;font-size:11px;color:#1e293b;padding:10px 20px 30px;line-height:1.6}
   .chevron{transition:transform .2s;color:var(--dim);font-size:11px;flex-shrink:0}
   .chevron.open{transform:rotate(180deg)}
+  .filter-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+  .fpill{background:var(--surface);border:1px solid var(--border);color:var(--muted);border-radius:20px;padding:5px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
+  .fpill.active{background:#3b82f622;border-color:var(--accent);color:var(--accent)}
   .modal-bg{position:fixed;inset:0;background:#000a;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
   .modal{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:22px;width:100%;max-width:400px;display:flex;flex-direction:column;gap:12px}
   .modal input{width:100%;background:#020917;border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text);font-size:13px;font-family:'Inter',sans-serif;outline:none}
@@ -87,193 +97,235 @@
   .step-item{display:flex;gap:10px;align-items:flex-start}
   .step-num{min-width:22px;height:22px;background:#3b82f622;color:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0}
   .step-text{font-size:12px;color:var(--muted);line-height:1.5}
-  .filter-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
-  .filter-pill{background:var(--surface);border:1px solid var(--border);color:var(--muted);border-radius:20px;padding:5px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
-  .filter-pill.active{background:#3b82f622;border-color:var(--accent);color:var(--accent)}
+  .api-status{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+  .api-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+  .footer{text-align:center;font-size:11px;color:#1e293b;padding:10px 20px 30px;line-height:1.6}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script type="module">
-const ANTHROPIC_KEY = 'zb_key';
-const CACHE_KEY = 'zb_cache2';
-const CACHE_DATE = 'zb_date2';
 
-// ── REAL WORLD CUP 2026 MATCHES (grouped by date) ────────────────────────────
-const ALL_MATCHES = [
-  // 11 juin
-  {id:1,home:"Mexique",away:"Afrique du Sud",comp:"Coupe du Monde 2026",group:"Groupe A",flag:"🏆",date:"2026-06-11",time:"21h00",type:"wc"},
-  // 12 juin
-  {id:2,home:"Corée du Sud",away:"Rép. tchèque",comp:"Coupe du Monde 2026",group:"Groupe A",flag:"🏆",date:"2026-06-12",time:"04h00",type:"wc"},
-  {id:3,home:"Canada",away:"Bosnie-Herzégovine",comp:"Coupe du Monde 2026",group:"Groupe B",flag:"🏆",date:"2026-06-12",time:"21h00",type:"wc"},
-  // 13 juin
-  {id:4,home:"États-Unis",away:"Paraguay",comp:"Coupe du Monde 2026",group:"Groupe D",flag:"🏆",date:"2026-06-13",time:"03h00",type:"wc"},
-  {id:5,home:"Qatar",away:"Suisse",comp:"Coupe du Monde 2026",group:"Groupe B",flag:"🏆",date:"2026-06-13",time:"21h00",type:"wc"},
-  // 14 juin
-  {id:6,home:"Brésil",away:"Maroc",comp:"Coupe du Monde 2026",group:"Groupe C",flag:"🏆",date:"2026-06-14",time:"00h00",type:"wc"},
-  {id:7,home:"Haïti",away:"Écosse",comp:"Coupe du Monde 2026",group:"Groupe C",flag:"🏆",date:"2026-06-14",time:"03h00",type:"wc"},
-  {id:8,home:"Australie",away:"Turquie",comp:"Coupe du Monde 2026",group:"Groupe D",flag:"🏆",date:"2026-06-14",time:"06h00",type:"wc"},
-  {id:9,home:"Allemagne",away:"Curaçao",comp:"Coupe du Monde 2026",group:"Groupe E",flag:"🏆",date:"2026-06-14",time:"19h00",type:"wc"},
-  {id:10,home:"Pays-Bas",away:"Japon",comp:"Coupe du Monde 2026",group:"Groupe F",flag:"🏆",date:"2026-06-14",time:"22h00",type:"wc"},
-  // 15 juin
-  {id:11,home:"Côte d'Ivoire",away:"Équateur",comp:"Coupe du Monde 2026",group:"Groupe E",flag:"🏆",date:"2026-06-15",time:"01h00",type:"wc"},
-  {id:12,home:"Suède",away:"Tunisie",comp:"Coupe du Monde 2026",group:"Groupe F",flag:"🏆",date:"2026-06-15",time:"04h00",type:"wc"},
-  {id:13,home:"Espagne",away:"Cap-Vert",comp:"Coupe du Monde 2026",group:"Groupe H",flag:"🏆",date:"2026-06-15",time:"18h00",type:"wc"},
-  {id:14,home:"Arabie Saoudite",away:"Uruguay",comp:"Coupe du Monde 2026",group:"Groupe H",flag:"🏆",date:"2026-06-15",time:"21h00",type:"wc"},
-  // 16 juin
-  {id:15,home:"Belgique",away:"Égypte",comp:"Coupe du Monde 2026",group:"Groupe G",flag:"🏆",date:"2026-06-16",time:"18h00",type:"wc"},
-  {id:16,home:"France",away:"Sénégal",comp:"Coupe du Monde 2026",group:"Groupe I",flag:"🏆",date:"2026-06-16",time:"21h00",type:"wc"},
-  {id:17,home:"Iran",away:"Nouvelle-Zélande",comp:"Coupe du Monde 2026",group:"Groupe G",flag:"🏆",date:"2026-06-16",time:"21h00",type:"wc"},
-  // 17 juin
-  {id:18,home:"Argentine",away:"Algérie",comp:"Coupe du Monde 2026",group:"Groupe J",flag:"🏆",date:"2026-06-17",time:"21h00",type:"wc"},
-  {id:19,home:"Portugal",away:"Ouzbékistan",comp:"Coupe du Monde 2026",group:"Groupe K",flag:"🏆",date:"2026-06-17",time:"18h00",type:"wc"},
-  // 18 juin
-  {id:20,home:"Angleterre",away:"Colombie",comp:"Coupe du Monde 2026",group:"Groupe L",flag:"🏆",date:"2026-06-18",time:"21h00",type:"wc"},
-  {id:21,home:"Croatie",away:"Panama",comp:"Coupe du Monde 2026",group:"Groupe K",flag:"🏆",date:"2026-06-18",time:"18h00",type:"wc"},
-  // 19 juin
-  {id:22,home:"Mexique",away:"Corée du Sud",comp:"Coupe du Monde 2026",group:"Groupe A",flag:"🏆",date:"2026-06-19",time:"21h00",type:"wc"},
-  {id:23,home:"Afrique du Sud",away:"Rép. tchèque",comp:"Coupe du Monde 2026",group:"Groupe A",flag:"🏆",date:"2026-06-19",time:"21h00",type:"wc"},
-  // 20 juin
-  {id:24,home:"Pays-Bas",away:"Suède",comp:"Coupe du Monde 2026",group:"Groupe F",flag:"🏆",date:"2026-06-20",time:"21h00",type:"wc"},
-  {id:25,home:"Allemagne",away:"Côte d'Ivoire",comp:"Coupe du Monde 2026",group:"Groupe E",flag:"🏆",date:"2026-06-20",time:"18h00",type:"wc"},
-  // 21 juin
-  {id:26,home:"Brésil",away:"Haïti",comp:"Coupe du Monde 2026",group:"Groupe C",flag:"🏆",date:"2026-06-21",time:"21h00",type:"wc"},
-  {id:27,home:"Maroc",away:"Écosse",comp:"Coupe du Monde 2026",group:"Groupe C",flag:"🏆",date:"2026-06-21",time:"18h00",type:"wc"},
-  // 22 juin
-  {id:28,home:"France",away:"Irak",comp:"Coupe du Monde 2026",group:"Groupe I",flag:"🏆",date:"2026-06-22",time:"23h00",type:"wc"},
-  {id:29,home:"Espagne",away:"Arabie Saoudite",comp:"Coupe du Monde 2026",group:"Groupe H",flag:"🏆",date:"2026-06-22",time:"21h00",type:"wc"},
-  // Amicaux internationaux
-  {id:100,home:"Italie",away:"Pays-Bas",comp:"Amical International",group:"Amical",flag:"🤝",date:"2026-06-10",time:"20h45",type:"friendly"},
-  {id:101,home:"Suisse",away:"Autriche",comp:"Amical International",group:"Amical",flag:"🤝",date:"2026-06-10",time:"18h00",type:"friendly"},
-  {id:102,home:"Danemark",away:"Serbie",comp:"Amical International",group:"Amical",flag:"🤝",date:"2026-06-10",time:"19h00",type:"friendly"},
+const ANTH_KEY = 'zb_anth';
+const APIF_KEY = 'zb_apif';
+const CACHE_KEY = 'zb_c3_';
+const CACHE_DATE = 'zb_d3_';
+
+// ── WORLD CUP 2026 MATCHES ────────────────────────────────────────────────────
+const WC_MATCHES = [
+  {id:1,home:"Mexique",away:"Afrique du Sud",comp:"Coupe du Monde",group:"Groupe A",flag:"🏆",date:"2026-06-11",time:"21h00",type:"wc",hid:262,aid:801,lid:1},
+  {id:2,home:"Corée du Sud",away:"Rép. tchèque",comp:"Coupe du Monde",group:"Groupe A",flag:"🏆",date:"2026-06-12",time:"04h00",type:"wc",hid:732,aid:769,lid:1},
+  {id:3,home:"Canada",away:"Bosnie-Herzégovine",comp:"Coupe du Monde",group:"Groupe B",flag:"🏆",date:"2026-06-12",time:"21h00",type:"wc",hid:101,aid:756,lid:1},
+  {id:4,home:"États-Unis",away:"Paraguay",comp:"Coupe du Monde",group:"Groupe D",flag:"🏆",date:"2026-06-13",time:"03h00",type:"wc",hid:1605,aid:780,lid:1},
+  {id:5,home:"Qatar",away:"Suisse",comp:"Coupe du Monde",group:"Groupe B",flag:"🏆",date:"2026-06-13",time:"21h00",type:"wc",hid:160,aid:770,lid:1},
+  {id:6,home:"Brésil",away:"Maroc",comp:"Coupe du Monde",group:"Groupe C",flag:"🏆",date:"2026-06-14",time:"00h00",type:"wc",hid:6,aid:804,lid:1},
+  {id:7,home:"Haïti",away:"Écosse",comp:"Coupe du Monde",group:"Groupe C",flag:"🏆",date:"2026-06-14",time:"03h00",type:"wc",hid:519,aid:1108,lid:1},
+  {id:8,home:"Australie",away:"Turquie",comp:"Coupe du Monde",group:"Groupe D",flag:"🏆",date:"2026-06-14",time:"06h00",type:"wc",hid:25,aid:777,lid:1},
+  {id:9,home:"Allemagne",away:"Curaçao",comp:"Coupe du Monde",group:"Groupe E",flag:"🏆",date:"2026-06-14",time:"19h00",type:"wc",hid:25,aid:1570,lid:1},
+  {id:10,home:"Pays-Bas",away:"Japon",comp:"Coupe du Monde",group:"Groupe F",flag:"🏆",date:"2026-06-14",time:"22h00",type:"wc",hid:21,aid:26,lid:1},
+  {id:11,home:"Côte d'Ivoire",away:"Équateur",comp:"Coupe du Monde",group:"Groupe E",flag:"🏆",date:"2026-06-15",time:"01h00",type:"wc",hid:1225,aid:815,lid:1},
+  {id:12,home:"Suède",away:"Tunisie",comp:"Coupe du Monde",group:"Groupe F",flag:"🏆",date:"2026-06-15",time:"04h00",type:"wc",hid:798,aid:788,lid:1},
+  {id:13,home:"Espagne",away:"Cap-Vert",comp:"Coupe du Monde",group:"Groupe H",flag:"🏆",date:"2026-06-15",time:"18h00",type:"wc",hid:9,aid:1227,lid:1},
+  {id:14,home:"Arabie Saoudite",away:"Uruguay",comp:"Coupe du Monde",group:"Groupe H",flag:"🏆",date:"2026-06-15",time:"21h00",type:"wc",hid:157,aid:840,lid:1},
+  {id:15,home:"Belgique",away:"Égypte",comp:"Coupe du Monde",group:"Groupe G",flag:"🏆",date:"2026-06-16",time:"18h00",type:"wc",hid:1,aid:803,lid:1},
+  {id:16,home:"France",away:"Sénégal",comp:"Coupe du Monde",group:"Groupe I",flag:"🏆",date:"2026-06-16",time:"21h00",type:"wc",hid:2,aid:1227,lid:1},
+  {id:17,home:"Iran",away:"Nouvelle-Zélande",comp:"Coupe du Monde",group:"Groupe G",flag:"🏆",date:"2026-06-16",time:"21h00",type:"wc",hid:788,aid:1228,lid:1},
+  {id:18,home:"Argentine",away:"Algérie",comp:"Coupe du Monde",group:"Groupe J",flag:"🏆",date:"2026-06-17",time:"21h00",type:"wc",hid:26,aid:805,lid:1},
+  {id:19,home:"Portugal",away:"Ouzbékistan",comp:"Coupe du Monde",group:"Groupe K",flag:"🏆",date:"2026-06-17",time:"18h00",type:"wc",hid:27,aid:1229,lid:1},
+  {id:20,home:"Angleterre",away:"Colombie",comp:"Coupe du Monde",group:"Groupe L",flag:"🏆",date:"2026-06-18",time:"21h00",type:"wc",hid:10,aid:806,lid:1},
+  {id:21,home:"Croatie",away:"Panama",comp:"Coupe du Monde",group:"Groupe K",flag:"🏆",date:"2026-06-18",time:"18h00",type:"wc",hid:3,aid:816,lid:1},
+  {id:22,home:"France",away:"Irak",comp:"Coupe du Monde",group:"Groupe I",flag:"🏆",date:"2026-06-22",time:"23h00",type:"wc",hid:2,aid:1230,lid:1},
+  {id:23,home:"Espagne",away:"Arabie Saoudite",comp:"Coupe du Monde",group:"Groupe H",flag:"🏆",date:"2026-06-22",time:"21h00",type:"wc",hid:9,aid:157,lid:1},
 ];
 
+const FRIENDLY_MATCHES = [
+  {id:100,home:"Italie",away:"Pays-Bas",comp:"Amical International",group:"Amical",flag:"🤝",date:"2026-06-10",time:"20h45",type:"friendly"},
+  {id:101,home:"Suisse",away:"Autriche",comp:"Amical International",group:"Amical",flag:"🤝",date:"2026-06-10",time:"18h00",type:"friendly"},
+  {id:102,home:"Danemark",away:"Serbie",comp:"Amical International",group:"Amical",flag:"🤝",date:"2026-06-11",time:"19h00",type:"friendly"},
+  {id:103,home:"Allemagne",away:"Pologne",comp:"Amical International",group:"Amical",flag:"🤝",date:"2026-06-11",time:"20h45",type:"friendly"},
+];
+
+const ALL_MATCHES = [...WC_MATCHES, ...FRIENDLY_MATCHES];
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
 const gc = v => v>=78?'#22c55e':v>=62?'#f59e0b':'#ef4444';
 const todayKey = () => new Date().toISOString().slice(0,10);
 const todayLabel = () => new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
-const formatDate = d => new Date(d).toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'short'});
 
-function bar(v,h=5){return`<div class="bar-wrap" style="height:${h}px"><div class="bar-fill" style="width:${Math.min(v,100)}%;height:${h}px;background:${gc(v)}"></div></div>`}
-function formB(f){const c={V:'#22c55e',N:'#f59e0b',D:'#ef4444','?':'#475569'};return f.split('').map(x=>`<span style="background:${c[x]||'#475569'}18;color:${c[x]||'#475569'};font-weight:700;font-size:10px;padding:1px 5px;border-radius:4px">${x}</span>`).join(' ')}
-
-let state = {
-  tab: 'today',
-  scanning: false,
-  progress: {done:0,total:0},
-  results: [],
-  expanded: null,
-  key: localStorage.getItem(ANTHROPIC_KEY)||'',
-  showModal: !localStorage.getItem(ANTHROPIC_KEY),
-  filter: 'all',
-};
-function setState(p){state={...state,...p};render()}
-
-// Get matches for selected tab
-function getMatches(tab){
-  const today = todayKey();
-  if(tab==='today') return ALL_MATCHES.filter(m=>m.date===today);
-  if(tab==='wc') return ALL_MATCHES.filter(m=>m.type==='wc');
-  if(tab==='friendly') return ALL_MATCHES.filter(m=>m.type==='friendly');
-  return ALL_MATCHES;
+function bar(v,h=5){
+  return `<div class="bar-wrap" style="height:${h}px"><div class="bar-fill" style="width:${Math.min(v,100)}%;height:${h}px;background:${gc(v)}"></div></div>`;
 }
 
-async function analyzeMatch(m){
-  const prompt=`Analyse ce match international de football. Identifie les VALUE BETS avec précision.
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let state = {
+  tab:'today', scanning:false, progress:{done:0,total:0},
+  results:[], expanded:null, filter:'all',
+  anthKey: localStorage.getItem(ANTH_KEY)||'',
+  apifKey: localStorage.getItem(APIF_KEY)||'',
+  showModal: !localStorage.getItem(ANTH_KEY),
+};
+const setState = p => { state={...state,...p}; render(); };
+
+// ── API-FOOTBALL ──────────────────────────────────────────────────────────────
+async function fetchLineups(fixtureId, apiKey) {
+  if(!apiKey||!fixtureId) return null;
+  try {
+    const r = await fetch(`https://v3.football.api-sports.io/fixtures/lineups?fixture=${fixtureId}`,{
+      headers:{'x-apisports-key':apiKey}
+    });
+    const d = await r.json();
+    return d.response||null;
+  } catch { return null; }
+}
+
+async function fetchTodayFixtures(apiKey) {
+  if(!apiKey) return [];
+  try {
+    const today = todayKey();
+    const r = await fetch(`https://v3.football.api-sports.io/fixtures?date=${today}&league=1&season=2026`,{
+      headers:{'x-apisports-key':apiKey}
+    });
+    const d = await r.json();
+    return d.response||[];
+  } catch { return []; }
+}
+
+// ── CLAUDE ANALYSIS ───────────────────────────────────────────────────────────
+async function analyzeMatch(m, lineups) {
+  let lineupText = '';
+  let absentText = '';
+
+  if(lineups && lineups.length >= 2) {
+    const home = lineups[0];
+    const away = lineups[1];
+    const homePlayers = home.startXI?.map(p=>p.player.name).join(', ')||'';
+    const awayPlayers = away.startXI?.map(p=>p.player.name).join(', ')||'';
+    lineupText = `\nComposition ${m.home}: ${homePlayers}\nComposition ${m.away}: ${awayPlayers}`;
+  }
+
+  const prompt = `Tu es un expert en paris sportifs. Analyse ce match avec précision et identifie les VALUE BETS.
 
 Match: ${m.home} vs ${m.away}
-Compétition: ${m.comp} ${m.group||''}
-Type: ${m.type==='wc'?'Coupe du Monde 2026':'Match amical international'}
+Compétition: ${m.comp} — ${m.group}
+Type: ${m.type==='wc'?'Coupe du Monde 2026 (enjeux maximaux)':'Match amical (intensité réduite)'}
+${lineupText ? lineupText : 'Compositions: non encore disponibles'}
+${absentText}
 
-Tiens compte du contexte (Coupe du Monde = enjeux élevés, matchs amicaux = moins d'intensité).
+Tiens compte des compositions si disponibles (joueurs clés présents/absents impactent les cotes).
+Pour la Coupe du Monde: les équipes jouent à bloc, peu de matchs nuls en phase de groupes.
 
 Réponds UNIQUEMENT en JSON valide sans markdown:
-{"bets":[
-{"id":"over15","label":"Over 1.5","emoji":"⚽","prediction":"OUI","confidence":78,"isValue":true,"valueReason":"explication courte"},
-{"id":"over25","label":"Over 2.5","emoji":"🔥","prediction":"OUI","confidence":64,"isValue":false,"valueReason":""},
-{"id":"btts","label":"BTTS","emoji":"🎯","prediction":"OUI","confidence":69,"isValue":true,"valueReason":"explication courte"},
-{"id":"result","label":"Résultat","emoji":"🏆","prediction":"Victoire ${m.home}","confidence":55,"isValue":false,"valueReason":""},
-{"id":"dnb","label":"Double chance","emoji":"🛡️","prediction":"${m.home} ou Nul","confidence":72,"isValue":false,"valueReason":""}
-],
-"bestBet":{"label":"Over 1.5","confidence":78},
-"globalConfidence":73,
-"riskLevel":"MOYEN",
-"summary":"Analyse en une phrase"}`;
+{
+  "bets":[
+    {"id":"over15","label":"Over 1.5","emoji":"⚽","prediction":"OUI","confidence":82,"isValue":true,"valueReason":"explication courte basée sur les compos si dispo"},
+    {"id":"over25","label":"Over 2.5","emoji":"🔥","prediction":"OUI","confidence":67,"isValue":false,"valueReason":""},
+    {"id":"btts","label":"BTTS","emoji":"🎯","prediction":"OUI","confidence":71,"isValue":false,"valueReason":""},
+    {"id":"result","label":"Résultat","emoji":"🏆","prediction":"Victoire ${m.home}","confidence":58,"isValue":false,"valueReason":""},
+    {"id":"dnb","label":"Double chance","emoji":"🛡️","prediction":"${m.home} ou Nul","confidence":74,"isValue":true,"valueReason":"explication courte"}
+  ],
+  "bestBet":{"label":"Over 1.5","confidence":82},
+  "globalConfidence":76,
+  "riskLevel":"FAIBLE",
+  "lineupImpact": "${lineupText ? 'Impact des compos détecté' : 'Compos non disponibles — analyse basée sur forme générale'}",
+  "summary":"Analyse tactique en une phrase"
+}`;
 
-  const r=await fetch('https://api.anthropic.com/v1/messages',{
+  const r = await fetch('https://api.anthropic.com/v1/messages',{
     method:'POST',
-    headers:{'Content-Type':'application/json','x-api-key':state.key,'anthropic-version':'2023-06-01'},
-    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:prompt}]})
+    headers:{'Content-Type':'application/json','x-api-key':state.anthKey,'anthropic-version':'2023-06-01'},
+    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:900,messages:[{role:'user',content:prompt}]})
   });
-  const d=await r.json();
-  if(d.error)throw new Error(d.error.message);
-  const txt=d.content?.map(b=>b.text||'').join('').trim();
+  const d = await r.json();
+  if(d.error) throw new Error(d.error.message);
+  const txt = d.content?.map(b=>b.text||'').join('').trim();
   return JSON.parse(txt.replace(/```json|```/g,'').trim());
 }
 
-async function runScan(){
-  const matches=getMatches(state.tab);
-  if(!matches.length)return;
-
-  // Check cache
-  const cached=localStorage.getItem(CACHE_KEY+state.tab);
-  const cachedDate=localStorage.getItem(CACHE_DATE+state.tab);
-  if(cached&&cachedDate===todayKey()){
-    setState({results:JSON.parse(cached)});return;
-  }
-
-  setState({scanning:true,results:[],progress:{done:0,total:matches.length}});
-  const res=[];
-  for(let i=0;i<matches.length;i++){
-    const m=matches[i];
-    try{
-      const a=await analyzeMatch(m);
-      res.push({...m,a});
-    }catch{res.push({...m,a:null});}
-    setState({results:[...res],progress:{done:i+1,total:matches.length}});
-    await new Promise(r=>setTimeout(r,300));
-  }
-  const valid=res.filter(r=>r.a);
-  localStorage.setItem(CACHE_KEY+state.tab,JSON.stringify(valid));
-  localStorage.setItem(CACHE_DATE+state.tab,todayKey());
-  setState({scanning:false,results:valid});
+// ── SCAN ──────────────────────────────────────────────────────────────────────
+function getMatches(tab) {
+  const today = todayKey();
+  if(tab==='today') return ALL_MATCHES.filter(m=>m.date===today);
+  if(tab==='wc') return WC_MATCHES;
+  if(tab==='friendly') return FRIENDLY_MATCHES;
+  return ALL_MATCHES;
 }
 
-function render(){
-  const {tab,scanning,progress,results,expanded,showModal,filter}=state;
-  const valid=results.filter(r=>r.a);
-  let sorted=[...valid].sort((a,b)=>b.a.globalConfidence-a.a.globalConfidence);
-  if(filter==='value') sorted=sorted.filter(r=>r.a.bets?.some(b=>b.isValue));
-  if(filter==='high') sorted=sorted.filter(r=>r.a.globalConfidence>=75);
-  const allVBs=sorted.flatMap(r=>(r.a.bets?.filter(b=>b.isValue)||[]).map(b=>({...b,match:r})));
-  const pct=progress.total?Math.round(progress.done/progress.total*100):0;
-  const isToday=localStorage.getItem(CACHE_DATE+tab)===todayKey();
-  const matchesForTab=getMatches(tab);
+async function runScan() {
+  const matches = getMatches(state.tab);
+  if(!matches.length) return;
 
-  document.getElementById('app').innerHTML=`
+  const cached = localStorage.getItem(CACHE_KEY+state.tab);
+  const cachedDate = localStorage.getItem(CACHE_DATE+state.tab);
+  if(cached && cachedDate===todayKey()) { setState({results:JSON.parse(cached)}); return; }
+
+  setState({scanning:true, results:[], progress:{done:0,total:matches.length}});
+  const res = [];
+
+  for(let i=0;i<matches.length;i++) {
+    const m = matches[i];
+    try {
+      // Try to get lineups from API-Football
+      let lineups = null;
+      if(state.apifKey && m.fid) lineups = await fetchLineups(m.fid, state.apifKey);
+
+      const a = await analyzeMatch(m, lineups);
+      res.push({...m, a, lineups});
+    } catch {
+      res.push({...m, a:null, lineups:null});
+    }
+    setState({results:[...res], progress:{done:i+1,total:matches.length}});
+    await new Promise(r=>setTimeout(r,350));
+  }
+
+  const valid = res.filter(r=>r.a);
+  localStorage.setItem(CACHE_KEY+state.tab, JSON.stringify(valid));
+  localStorage.setItem(CACHE_DATE+state.tab, todayKey());
+  setState({scanning:false, results:valid});
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render() {
+  const {tab,scanning,progress,results,expanded,filter,showModal,apifKey} = state;
+  const valid = results.filter(r=>r.a);
+  let sorted = [...valid].sort((a,b)=>b.a.globalConfidence-a.a.globalConfidence);
+  if(filter==='value') sorted = sorted.filter(r=>r.a.bets?.some(b=>b.isValue));
+  if(filter==='high') sorted = sorted.filter(r=>r.a.globalConfidence>=75);
+  const allVBs = sorted.flatMap(r=>(r.a.bets?.filter(b=>b.isValue)||[]).map(b=>({...b,match:r})));
+  const pct = progress.total?Math.round(progress.done/progress.total*100):0;
+  const isToday = localStorage.getItem(CACHE_DATE+tab)===todayKey();
+  const matchesForTab = getMatches(tab);
+
+  document.getElementById('app').innerHTML = `
   <div class="header">
     <div class="header-inner">
       <div class="logo">
         <span style="font-size:20px">⚽</span>
         <div class="logo-text">Zeiik<span>Bet</span></div>
-        ${valid.length?`<span class="logo-badge">LIVE</span>`:''}
+        ${valid.length?`<span class="badge">LIVE</span>`:''}
       </div>
-      <div style="font-size:11px;color:var(--muted);font-weight:600">${todayLabel()}</div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+        <div style="font-size:11px;color:var(--muted)">${todayLabel()}</div>
+        <div class="api-status">
+          <div class="api-dot" style="background:${apifKey?'#22c55e':'#475569'}"></div>
+          <span style="font-size:10px">${apifKey?'Compos actives':'Sans compos'}</span>
+        </div>
+      </div>
     </div>
     <div class="tabs">
-      ${[['today','📅 Aujourd\'hui'],['wc','🏆 Coupe du Monde'],['friendly','🤝 Amicaux']].map(([id,label])=>
-        `<button class="tab ${tab===id?'active':''}" data-tab="${id}">${label}</button>`
+      ${[['today','📅 Aujourd\'hui'],['wc','🏆 Coupe du Monde'],['friendly','🤝 Amicaux']].map(([id,l])=>
+        `<button class="tab ${tab===id?'active':''}" data-tab="${id}">${l}</button>`
       ).join('')}
     </div>
   </div>
 
   <div class="main">
-    ${showModal?'':`
+  ${showModal?'':`
     ${valid.length?`
     <div class="hero fade-up">
-      <div class="hero-card"><div class="hero-num" style="color:#22c55e">${allVBs.length}</div><div class="hero-label">Value Bets</div></div>
-      <div class="hero-card"><div class="hero-num" style="color:var(--accent)">${sorted.filter(r=>r.a.globalConfidence>=75).length}</div><div class="hero-label">≥75%</div></div>
-      <div class="hero-card"><div class="hero-num" style="color:var(--accent2)">${valid.length}</div><div class="hero-label">Analysés</div></div>
-      <div class="hero-card"><div class="hero-num" style="color:#f59e0b">${matchesForTab.length}</div><div class="hero-label">Matchs</div></div>
+      <div class="hcard"><div class="hnum" style="color:#22c55e">${allVBs.length}</div><div class="hlbl">Value Bets</div></div>
+      <div class="hcard"><div class="hnum" style="color:var(--accent)">${sorted.filter(r=>r.a.globalConfidence>=75).length}</div><div class="hlbl">≥75%</div></div>
+      <div class="hcard"><div class="hnum" style="color:var(--accent2)">${valid.length}</div><div class="hlbl">Analysés</div></div>
+      <div class="hcard"><div class="hnum" style="color:#f59e0b">${matchesForTab.length}</div><div class="hlbl">Matchs</div></div>
     </div>`:''}
 
     <button class="scan-btn" id="scanBtn" ${scanning||!matchesForTab.length?'disabled':''}>
@@ -281,22 +333,22 @@ function render(){
         valid.length&&isToday?'🔄 Réanalyser':'🚀 Analyser les matchs'}
     </button>
     ${scanning?`<div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>`:''}
-    ${isToday&&valid.length?`<div style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:14px">✓ Analyse du jour sauvegardée</div>`:''}
+    ${isToday&&valid.length?`<div style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:12px">✓ Analyse du jour · ${apifKey?'Compositions intégrées':'Sans compositions'}</div>`:''}
 
     ${allVBs.length?`
-    <div class="section-title">🔥 Value Bets détectés</div>
+    <div class="section-title">🔥 Value Bets</div>
     <div class="vb-strip fade-up">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
-        <span style="font-size:15px">🔥</span>
-        <span style="font-size:13px;font-weight:800;color:var(--green)">Opportunités</span>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+        <span style="font-size:14px">🔥</span>
+        <span style="font-size:13px;font-weight:800;color:var(--green)">Opportunités détectées</span>
         <span style="background:#16a34a44;color:var(--green);font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px">${allVBs.length}</span>
       </div>
       ${allVBs.map(b=>`
       <div class="vb-item">
         <div class="vb-match">${b.match.home} vs ${b.match.away}</div>
         <div class="vb-meta">${b.match.flag} ${b.match.comp} · ${b.match.group} · 🕐 ${b.match.time}</div>
-        <div class="vb-bet">
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#94a3b8">${b.emoji} ${b.label}</div>
+        <div class="vb-row">
+          <span style="font-size:12px;color:#94a3b8">${b.emoji} ${b.label}</span>
           <div style="display:flex;align-items:center;gap:8px">
             <span class="vb-pred">${b.prediction}</span>
             <span class="vb-conf" style="color:${gc(b.confidence)}">${b.confidence}%</span>
@@ -310,44 +362,68 @@ function render(){
     ${sorted.length?`
     <div class="section-title">📊 Matchs analysés</div>
     <div class="filter-row">
-      ${[['all','Tous'],['high','🎯 ≥75%'],['value','🔥 Value']].map(([id,label])=>
-        `<button class="filter-pill ${filter===id?'active':''}" data-filter="${id}">${label}</button>`
+      ${[['all','Tous'],['high','🎯 ≥75%'],['value','🔥 Value']].map(([id,l])=>
+        `<button class="fpill ${filter===id?'active':''}" data-filter="${id}">${l}</button>`
       ).join('')}
     </div>
     ${sorted.map(r=>{
-      const hasV=r.a.bets?.some(b=>b.isValue);
-      const isExp=expanded===r.id;
-      const rc=r.a.riskLevel==='FAIBLE'?'#22c55e':r.a.riskLevel==='MOYEN'?'#f59e0b':'#ef4444';
-      return`<div class="match-card ${hasV?'has-value':''} fade-up" data-id="${r.id}">
+      const hasV = r.a.bets?.some(b=>b.isValue);
+      const isExp = expanded===r.id;
+      const rc = r.a.riskLevel==='FAIBLE'?'#22c55e':r.a.riskLevel==='MOYEN'?'#f59e0b':'#ef4444';
+      const hasLineups = r.lineups && r.lineups.length>=2;
+      return `<div class="match-card ${hasV?'has-value':''} fade-up">
         <div class="match-header" data-toggle="${r.id}">
           <div class="match-top">
             <div style="flex:1;min-width:0">
-              <div class="match-league">${r.flag} ${r.comp} · ${r.group} · 🕐 ${r.time}</div>
+              <div class="match-league">${r.flag} ${r.comp} · ${r.group} · 🕐 ${r.time}
+                ${hasLineups?`<span style="color:#22c55e;margin-left:4px">👥</span>`:''}
+              </div>
               <div class="match-teams">${r.home}<span class="sep">vs</span>${r.away}</div>
-              ${r.a.bestBet?`<div class="match-best">${r.a.bestBet.label} → <strong style="color:${gc(r.a.bestBet.confidence)}">${r.a.bestBet.confidence}%</strong></div>`:''}
+              ${r.a.bestBet?`<div style="font-size:11px;color:var(--muted);margin-top:3px">${r.a.bestBet.label} → <strong style="color:${gc(r.a.bestBet.confidence)}">${r.a.bestBet.confidence}%</strong></div>`:''}
               <div class="tags">
-                ${hasV?`<span class="tag value">🔥 VALUE</span>`:''}
-                ${r.a.globalConfidence>=75?`<span class="tag high">🎯 ≥75%</span>`:''}
-                ${r.type==='wc'?`<span class="tag wc">🏆 CDM</span>`:''}
+                ${hasV?`<span class="tag tag-v">🔥 VALUE</span>`:''}
+                ${r.a.globalConfidence>=75?`<span class="tag tag-h">🎯 ≥75%</span>`:''}
+                ${r.type==='wc'?`<span class="tag tag-wc">🏆 CDM</span>`:''}
+                ${hasLineups?`<span class="tag" style="background:#22c55e22;color:#22c55e;border:1px solid #22c55e33">👥 Compos</span>`:''}
               </div>
             </div>
             <div>
               <div class="conf-big" style="color:${gc(r.a.globalConfidence)}">${r.a.globalConfidence}%</div>
-              <div class="conf-label">GLOBAL</div>
+              <div class="conf-lbl">GLOBAL</div>
               <div class="risk-pill" style="color:${rc};background:${rc}18">${r.a.riskLevel}</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:8px">
+          <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
             <div style="flex:1">${bar(r.a.globalConfidence)}</div>
             <span class="chevron ${isExp?'open':''}">▼</span>
           </div>
         </div>
+
         ${isExp?`<div class="bets-panel fade-up">
           ${r.a.summary?`<div class="summary-box">🧠 ${r.a.summary}</div>`:''}
+          ${r.a.lineupImpact?`<div style="font-size:11px;color:${r.lineups?'#22c55e':'#475569'};margin-bottom:6px">${r.lineups?'👥':'ℹ️'} ${r.a.lineupImpact}</div>`:''}
+
+          ${r.lineups&&r.lineups.length>=2?`
+          <div class="lineup-box">
+            <div class="lineup-title">👥 COMPOSITIONS OFFICIELLES</div>
+            <div class="lineup-grid">
+              <div>
+                <div class="lineup-team">${r.home}</div>
+                ${r.lineups[0].startXI?.slice(0,5).map(p=>`<div class="lineup-player key">⬡ ${p.player.name}</div>`).join('')}
+                ${r.lineups[0].startXI?.length>5?`<div style="font-size:10px;color:var(--muted);margin-top:3px">+${r.lineups[0].startXI.length-5} joueurs</div>`:''}
+              </div>
+              <div>
+                <div class="lineup-team">${r.away}</div>
+                ${r.lineups[1].startXI?.slice(0,5).map(p=>`<div class="lineup-player key">⬡ ${p.player.name}</div>`).join('')}
+                ${r.lineups[1].startXI?.length>5?`<div style="font-size:10px;color:var(--muted);margin-top:3px">+${r.lineups[1].startXI.length-5} joueurs</div>`:''}
+              </div>
+            </div>
+          </div>`:''}
+
           ${r.a.bets?.map(b=>`
           <div class="bet-row ${b.isValue?'is-value':''}">
             <div class="bet-top">
-              <div class="bet-left">${b.emoji} ${b.label}${b.isValue?`<span style="font-size:10px;background:#16a34a22;color:#22c55e;font-weight:700;padding:1px 7px;border-radius:10px;border:1px solid #16a34a33">VALUE</span>`:''}</div>
+              <div class="bet-left">${b.emoji} ${b.label}${b.isValue?`<span class="bet-vbadge">VALUE</span>`:''}</div>
               <div class="bet-right">
                 <span style="font-size:11px;color:var(--muted)">${b.prediction}</span>
                 <span class="bet-conf" style="color:${gc(b.confidence)}">${b.confidence}%</span>
@@ -356,15 +432,22 @@ function render(){
             ${bar(b.confidence,4)}
             ${b.isValue&&b.valueReason?`<div class="bet-reason">💡 ${b.valueReason}</div>`:''}
           </div>`).join('')}
+
+          <div style="display:flex;justify-content:space-between;padding-top:4px;font-size:11px">
+            <span style="color:var(--muted)">Risque</span>
+            <span style="color:${r.a.riskLevel==='FAIBLE'?'#22c55e':r.a.riskLevel==='MOYEN'?'#f59e0b':'#ef4444'};font-weight:700">${r.a.riskLevel}</span>
+          </div>
         </div>`:''}
-      </div>`}).join('')}`:''}
+      </div>`;
+    }).join('')}`:''}
 
     ${!scanning&&!valid.length?`<div class="empty">
       <div class="empty-icon">${tab==='wc'?'🏆':tab==='friendly'?'🤝':'📅'}</div>
       <div class="empty-title">${matchesForTab.length?'Prêt à analyser':'Aucun match aujourd\'hui'}</div>
-      <div class="empty-sub">${matchesForTab.length?`${matchesForTab.length} match${matchesForTab.length>1?'s':''} disponible${matchesForTab.length>1?'s':''}. Lance l'analyse pour voir les value bets.`:'Consulte les onglets Coupe du Monde ou Amicaux.'}</div>
+      <div class="empty-sub">${matchesForTab.length?`${matchesForTab.length} match${matchesForTab.length>1?'s':''} · Lance l'analyse pour voir les value bets${apifKey?' avec compositions':''}`:
+      'Consulte les onglets Coupe du Monde ou Amicaux.'}</div>
     </div>`:''}
-    `}
+  `}
   </div>
 
   <div class="footer">⚠️ Prédictions IA à titre informatif · Jouez responsable · ZeiikBet © 2026</div>
@@ -372,15 +455,24 @@ function render(){
   ${showModal?`<div class="modal-bg"><div class="modal">
     <div style="text-align:center;font-size:36px">⚽</div>
     <div style="font-size:18px;font-weight:900;text-align:center">ZeiikBet</div>
-    <div style="font-size:12px;color:var(--muted);text-align:center;line-height:1.5">Coupe du Monde 2026 · Amicaux<br/>Value Bets analysés par IA</div>
+    <div style="font-size:12px;color:var(--muted);text-align:center;line-height:1.5">Coupe du Monde 2026 · Value Bets IA<br/>Compositions d'équipe en temps réel</div>
+
     <div style="display:flex;flex-direction:column;gap:8px">
-      <div class="step-item"><div class="step-num">1</div><div class="step-text">Va sur <a href="https://console.anthropic.com" target="_blank" style="color:#3b82f6">console.anthropic.com</a></div></div>
-      <div class="step-item"><div class="step-num">2</div><div class="step-text">API Keys → Create Key → copie-la</div></div>
-      <div class="step-item"><div class="step-num">3</div><div class="step-text">Colle ci-dessous — stockée uniquement sur ton appareil</div></div>
+      <div class="step-item"><div class="step-num">1</div><div class="step-text">Clé Anthropic : <a href="https://console.anthropic.com" target="_blank" style="color:#3b82f6">console.anthropic.com</a> → API Keys</div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-text">Clé API-Football : <a href="https://api-sports.io" target="_blank" style="color:#3b82f6">api-sports.io</a> → Dashboard (gratuit)</div></div>
     </div>
-    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..."/>
-    <button class="modal-btn" id="saveKeyBtn">Démarrer →</button>
-    <button class="modal-skip" id="skipBtn">Mode démo (sans clé)</button>
+
+    <div>
+      <label style="display:block;font-size:11px;color:var(--muted);font-weight:700;margin-bottom:5px;letter-spacing:.06em">CLÉ ANTHROPIC (IA)</label>
+      <input type="password" id="anthInput" placeholder="sk-ant-api03-..."/>
+    </div>
+    <div>
+      <label style="display:block;font-size:11px;color:var(--muted);font-weight:700;margin-bottom:5px;letter-spacing:.06em">CLÉ API-FOOTBALL (compos)</label>
+      <input type="password" id="apifInput" placeholder="2ba896895be58ae9dd..."/>
+    </div>
+
+    <button class="modal-btn" id="saveBtn">Démarrer →</button>
+    <button class="modal-skip" id="skipBtn">Sans clé API-Football</button>
   </div></div>`:''}
   `;
 
@@ -397,22 +489,29 @@ function render(){
     localStorage.removeItem(CACHE_DATE+state.tab);
     runScan();
   });
-  const saveBtn=document.getElementById('saveKeyBtn');
+  const saveBtn=document.getElementById('saveBtn');
   if(saveBtn)saveBtn.addEventListener('click',()=>{
-    const v=document.getElementById('apiKeyInput').value.trim();
-    if(v){localStorage.setItem(ANTHROPIC_KEY,v);setState({key:v,showModal:false});}
+    const anth=document.getElementById('anthInput').value.trim();
+    const apif=document.getElementById('apifInput').value.trim();
+    if(anth){
+      localStorage.setItem(ANTH_KEY,anth);
+      if(apif) localStorage.setItem(APIF_KEY,apif);
+      setState({anthKey:anth,apifKey:apif,showModal:false});
+    }
   });
   const skipBtn=document.getElementById('skipBtn');
-  if(skipBtn)skipBtn.addEventListener('click',()=>setState({showModal:false}));
+  if(skipBtn)skipBtn.addEventListener('click',()=>{
+    const anth=document.getElementById('anthInput').value.trim();
+    if(anth){localStorage.setItem(ANTH_KEY,anth);setState({anthKey:anth,showModal:false});}
+    else setState({showModal:false});
+  });
 }
 
 render();
 // Auto-load cache
-['today','wc','friendly'].forEach(tab=>{
-  const cached=localStorage.getItem(CACHE_KEY+tab);
-  const date=localStorage.getItem(CACHE_DATE+tab);
-  if(cached&&date===todayKey()&&tab===state.tab)setState({results:JSON.parse(cached)});
-});
+const cached=localStorage.getItem(CACHE_KEY+state.tab);
+const date=localStorage.getItem(CACHE_DATE+state.tab);
+if(cached&&date===todayKey()) setState({results:JSON.parse(cached)});
 </script>
 </body>
 </html>
